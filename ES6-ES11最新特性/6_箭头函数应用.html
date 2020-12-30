@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #58a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        //1
+        //没有箭头函数前的老式写法
+        //获取元素
+        let box = document.getElementById('box');
+        //绑定事件
+        // box.addEventListener('click', function () {
+        //     //保存 this 的值
+        //     let _this = this;
+        //     //定时器
+        //     setTimeout(function () {
+        //         console.log(this);
+        //         _this.style.background = 'pink';
+        //     }, 2000)
+        // })
+
+        //箭头函数写法
+        box.addEventListener('click', function () {
+            setTimeout(() => {
+                this.style.background = 'pink';
+            }, 2000)
+        })
+
+        //2
+        const arr = [1, 6, 9, 10, 100, 25];
+        // const result = arr.filter(function (item) {
+        //     return item % 2 === 0
+        // })
+        const result = arr.filter(item => item % 2 === 0);
+        console.log(result);
+
+        //总结
+        // 箭头函数适合与 this 无关的回调。定时器，数组的方法回调
+        // 不适合事件回调，对象的方法
+
+        window.name = 'out';
+        const test = {
+            name: 'in',
+            getName1: () => {
+                console.log(this.name)
+            },
+            getName2: function () {
+                console.log(this.name)
+            }
+        }
+
+        test.getName1();
+        test.getName2();
+    </script>
+</body>
+
+</html>
