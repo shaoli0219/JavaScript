@@ -1,0 +1,14 @@
+#######################
+#	IntelliJ IDEA Project files	#
+#######################
+.idea
+*.iml
+*.ipr
+*.iws
+
+
+################
+# Compiled source #
+################
+bin/
+*.class
