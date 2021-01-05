@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档加载</title>
+    <script type="text/javascript">
+        /**
+         *
+         * 浏览器在加载一个页面时，是按照从上到下的顺序加载的
+         *      如果将script标签写在页面上部head里，在代码执行时，页面内容还没加载
+         */
+
+        // var btn = document.getElementById("btn")
+        // btn.onclick = function () {
+        //     console.log("bind onclick")
+        // }
+
+        /**
+         *
+         * 解决方法：使用onload函数，等页面文档加载完后再执行js代码
+         */
+
+        window.onload = function () {
+            var btn = document.getElementById("btn")
+            btn.onclick = function () {
+                console.log("bind onclick")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">click me</button>
+    <script type="text/javascript">
+        // 写在最底部不会报错
+        // var btn = document.getElementById("btn")
+        // btn.onclick = function () {
+        //     console.log("bind onclick")
+        // }
+    </script>
+</body>
+
+</html>
