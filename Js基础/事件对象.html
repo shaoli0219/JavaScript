@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        #actionDiv {
+            width: 500px;
+            height: 200px;
+            border: 1px black solid;
+            margin-bottom: 20px;
+        }
+
+        #msgDiv {
+            width: 500px;
+            height: 25px;
+            border: 1px black solid;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var actionDiv = document.getElementById("actionDiv")
+            var msgDiv = document.getElementById("msgDiv")
+            actionDiv.onmousemove = function (event) {
+                event = event || window.event
+                var x = event.clientX
+                var y = event.clientY
+                msgDiv.innerHTML = `x=${x}，y=${y}`
+            }
+            actionDiv.onmouseleave = function (event) {
+                msgDiv.innerHTML = ``
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="actionDiv"></div>
+    <div id="msgDiv"></div>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>
