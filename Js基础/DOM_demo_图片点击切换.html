@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            width: 200px;
+            background-color: aquamarine;
+            padding: 10px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var index = 0
+            var imgsPath = [
+                "img/1.jpg",
+                "img/2.jpg",
+                "img/3.jpg",
+                "img/4.jpg",
+                "img/5.jpg",
+            ]
+            var prev = document.getElementById("prev")
+            var next = document.getElementById("next")
+            var img = document.getElementById("img")
+            var info = document.getElementById("info")
+
+            next.onclick = function () {
+                if (index != imgsPath.length - 1) {
+                    index++
+                }
+                img.src = imgsPath[index]
+                info.innerHTML = `一共${imgsPath.length}张，当前第${index+1}张`
+            }
+
+            prev.onclick = function () {
+                if (index != 0) {
+                    index--
+                }
+                img.src = imgsPath[index]
+                info.innerHTML = `一共${imgsPath.length}张，当前第${index+1}张`
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <p id="info">一共5张，当前第1张</p>
+        <img id="img" src="img/1.jpg">
+        <div>
+            <button id="prev">上一张</button>
+            <button id="next">下一张</button>
+        </div>
+    </div>
+</body>
+
+</html>
