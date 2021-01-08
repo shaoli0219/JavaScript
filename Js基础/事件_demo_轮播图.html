@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #outer {
+            width: 206px;
+            height: 124px;
+            margin: 0 auto;
+            padding: 10px 0;
+            background-color: yellowgreen;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgList {
+            list-style: none;
+            width: 1030px;
+            position: absolute;
+            left: 0;
+        }
+
+        #imgList li {
+            margin: 0 10px;
+            float: left;
+        }
+
+        #navDiv {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+        }
+
+        #navDiv a {
+            float: left;
+            width: 7px;
+            height: 7px;
+            background-color: red;
+            margin: 0 3px;
+            opacity: 0.5;
+        }
+
+        #navDiv a:hover {
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var imgList = document.getElementById("imgList")
+            var imgArr = document.getElementsByTagName("img")
+            var outer = document.getElementById("outer")
+            var navDiv = document.getElementById("navDiv")
+            var aArr = document.getElementsByTagName("a")
+            imgList.style.width = 206 * imgArr.length + "px"
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px"
+            var index = 0
+            var timer
+            aArr[index].style.backgroundColor = "black"
+            autoSlide()
+
+            for (var i = 0; i < aArr.length; i++) {
+                aArr[i].num = i
+                aArr[i].onclick = function () {
+                    clearInterval(timer)
+                    index = this.num
+                    setColor()
+                    move(imgList, "left", -206 * index, 10, function () {
+                        autoSlide()
+                    })
+                }
+            }
+
+
+            function autoSlide() {
+                timer = setInterval(function () {
+                    index++
+                    index %= imgArr.length
+                    move(imgList, "left", -206 * index, 10, function () {
+                        setColor()
+                    })
+                }, 2000)
+            }
+
+            function setColor() {
+                if (index >= imgArr.length - 1) {
+                    index = 0
+                    imgList.style.left = 0
+                }
+                for (var i = 0; i < aArr.length; i++) {
+                    aArr[i].style.backgroundColor = ""
+                }
+                aArr[index].style.backgroundColor = "black"
+            }
+
+            function move(obj, attr, target, speed, callback) {
+                clearInterval(obj.timer)
+                var current = parseInt(getStyel(obj, attr))
+                if (current > target) {
+                    speed = -speed
+                }
+                obj.timer = setInterval(function () {
+                    var oldValue = parseInt(getStyel(obj, attr))
+                    var newValue = oldValue + speed
+                    if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
+                        newValue = target
+                    }
+                    obj.style[attr] = newValue + "px"
+                    if (newValue == target) {
+                        clearInterval(obj.timer)
+                        callback && callback()
+                    }
+                }, 30)
+            }
+
+            function getStyel(obj, name) {
+                if (window.getComputedStyle) {
+                    // 正常浏览器有该方法获取style
+                    return window.getComputedStyle(obj, null)[name]
+                } else {
+                    // ie8的方式
+                    return obj.currentStyle[name]
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li>
+                <img src="img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/5.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/1.jpg" alt="">
+            </li>
+        </ul>
+
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>

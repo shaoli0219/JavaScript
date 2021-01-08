@@ -10,6 +10,21 @@
         body {
             padding: 0;
             margin: 0;
+            text-align: center;
+        }
+
+        .move-box {
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        .score-box {
+            width: 800px;
+            height: 25px;
+            border: 1px solid black;
+            margin: 0 auto;
         }
 
         #box1 {
@@ -18,13 +33,13 @@
             background-color: red;
             position: relative;
             left: 0;
-            margin-top: 20px;
+            top: 0;
         }
 
         #box2 {
             width: 25px;
             height: 25px;
-            background-color: yellow;
+            background-color: black;
             position: relative;
             left: 0;
             top: 50px;
@@ -38,7 +53,7 @@
             var btn2 = document.getElementById("btn2")
 
             // 速度
-            var speed = 5
+            var speed = 25
 
             //方向
             var dir = 0
@@ -64,7 +79,7 @@
                         move(box1, "left", 800, speed)
                         break
                     case 40:
-                        move(box1, "top", 800, speed)
+                        move(box1, "top", 600, speed)
                         break
                 }
             }
@@ -97,7 +112,7 @@
                     clearInterval(obj.timer)
                     callback && callback()
                 }
-            }, 30)
+            }, 300)
         }
     </script>
 </head>
@@ -106,8 +121,13 @@
     <button id="btn1">开始</button>
     <button id="btn2">重置</button>
 
-    <div id="box1"></div>
-    <div id="box2"></div>
+    <div class="move-box">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+
+    <div class="score-box">0分</div>
+
 </body>
 
 </html>
