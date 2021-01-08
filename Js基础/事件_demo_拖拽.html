@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            top: 200px;
+            left: 200px;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            /**
+             *
+             * 1.鼠标在被拖拽元素上点击左键时，开始拖拽
+             * 2.当鼠标移动时，被拖拽的元素跟随鼠标移动
+             * 3.当鼠标松开是，被拖拽的元素固定在当前位置
+             */
+            var box1 = document.getElementById("box1")
+            var box2 = document.getElementById("box2")
+            drag(box1)
+            drag(box2)
+        }
+
+        function drag(obj) {
+            //鼠标按下
+            obj.onmousedown = function (event) {
+                obj.setCapture && obj.setCapture()
+
+                event = event || window.event
+                //div偏移量
+                var dx = event.clientX - obj.offsetLeft
+                var dy = event.clientY - obj.offsetTop
+
+                //开始拖拽
+                document.onmousemove = function (event) {
+                    event = event || window.event
+                    var left = event.clientX - dx
+                    var top = event.clientY - dy
+
+                    obj.style.left = left + "px"
+                    obj.style.top = top + "px"
+                }
+
+                //松开左键
+                document.onmouseup = function () {
+                    document.onmousemove = null
+                    document.onmouseup = null
+                    obj.releaseCapture && obj.releaseCapture()
+                }
+                return false
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>一段文字</p>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

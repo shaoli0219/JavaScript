@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            left: 0;
+            margin-top: 20px;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: relative;
+            left: 0;
+            top: 50px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1")
+            var box2 = document.getElementById("box2")
+            var btn1 = document.getElementById("btn1")
+            var btn2 = document.getElementById("btn2")
+            var btn3 = document.getElementById("btn3")
+            var btn4 = document.getElementById("btn4")
+            btn1.onclick = function () {
+                move(box1, "left", 800, 12)
+            }
+
+            btn2.onclick = function () {
+                move(box1, "left", 0, 12)
+            }
+
+            btn3.onclick = function () {
+                move(box2, "left", 800, 8)
+            }
+
+            btn4.onclick = function () {
+                move(box2, "width", 800, 8, function () {
+                    move(box2, "height", 400, 8)
+                })
+            }
+        }
+
+        function getStyel(obj, name) {
+            if (window.getComputedStyle) {
+                // 正常浏览器有该方法获取style
+                return window.getComputedStyle(obj, null)[name]
+            } else {
+                // ie8的方式
+                return obj.currentStyle[name]
+            }
+        }
+
+        function move(obj, attr, target, speed, callback) {
+            clearInterval(obj.timer)
+            var current = parseInt(getStyel(obj, attr))
+            if (current > target) {
+                speed = -speed
+            }
+            obj.timer = setInterval(function () {
+                var oldValue = parseInt(getStyel(obj, attr))
+                var newValue = oldValue + speed
+                if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
+                    newValue = target
+                }
+                obj.style[attr] = newValue + "px"
+                if (newValue == target) {
+                    clearInterval(obj.timer)
+                    callback && callback()
+                }
+            }, 30)
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn1">点击后box1向右移动</button>
+    <button id="btn2">点击后box1向右移动</button>
+    <button id="btn3">点击后box2向左移动</button>
+    <button id="btn4">多方向运动</button>
+
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

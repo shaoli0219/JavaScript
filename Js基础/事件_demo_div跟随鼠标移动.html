@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+            height: 1500px;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var box1 = document.getElementById("box1")
+            document.onmousemove = function (event) {
+                // 处理ie8、火狐和chrome兼容性
+                event = event || window.event
+
+                /**
+                 * chroem认为滚动条是body的
+                 * 火狐和ie8认为滚动条是html的
+                 */
+                var st = document.body.scrollTop || document.documentElement.scrollTop
+                var sl = document.body.scrollLeft || document.documentElement.scrollLeft
+
+                /**
+                 *
+                 * 获取鼠标坐标点
+                 * 
+                 * clientX和clientY
+                 * 用于获取鼠标在当前可见窗口的坐标
+                 * 
+                 * pageX和pageY
+                 * 用于获取鼠标相对于当前页面的坐标
+                 * ie8不支持
+                 */
+                var left = event.clientX
+                var top = event.clientY
+
+                box1.style.left = left + sl + "px"
+                box1.style.top = top + st + "px"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1">
+
+    </div>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>

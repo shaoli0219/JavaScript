@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            // 速度
+            var speed = 10
+
+            //方向
+            var dir = 0
+
+            document.onkeydown = function (event) {
+                event = event || window.event
+                // 加速
+                if (event.ctrlKey) {
+                    speed = 15
+                } else {
+                    speed = 10
+                }
+                dir = event.keyCode
+            }
+
+            document.onkeyup = function (event) {
+                dir = 0
+            }
+
+            //开启定时器控制div移动
+            setInterval(function () {
+                /**
+                 *
+                 * 左37
+                 * 上38
+                 * 右39
+                 * 下40
+                 */
+                switch (dir) {
+                    case 37:
+                        console.log("←")
+                        box1.style.left = box1.offsetLeft - speed + "px"
+                        break
+                    case 38:
+                        console.log("↑")
+                        box1.style.top = box1.offsetTop - speed + "px"
+                        break
+                    case 39:
+                        console.log("→")
+                        box1.style.left = box1.offsetLeft + speed + "px"
+                        break
+                    case 40:
+                        console.log("↓")
+                        box1.style.top = box1.offsetTop + speed + "px"
+                        break
+                }
+            }, 30);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>
