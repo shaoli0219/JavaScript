@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        /**
+         * Location
+         *          - 代表当前浏览器地址栏信息，通过Location可以获取地址栏信息，或者操作浏览器跳转页面
+         */
+        window.onload = function () {
+            var btn = document.getElementById("btn")
+            console.log(btn)
+            btn.onclick = function () {
+                // location = "http://www.baidu.com"// 可以生成历史记录
+                // location = "BOM_Navigator.html"
+
+                // location.assign("http://www.baidu.com")// 可以生成历史记录
+
+                // location.reload() //重新加载当前页面（刷新）
+                // location.reload(true) //强制清空缓存刷新
+
+                // location.replace("http://www.baidu.com")// 无法生成历史记录
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>
