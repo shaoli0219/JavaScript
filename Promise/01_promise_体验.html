@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="page-header">Promise 初体验</h2>
+        <button class="btn btn-primary" id="btn">点击抽奖</button>
+    </div>
+    <script type="text/javascript">
+        //生成随机数
+        function rand(m, n) {
+            return Math.ceil(Math.random() * (n - m + 1)) + m - 1
+        }
+
+        /**
+         * 点击按钮，1s后显示是否中奖（30%概率中奖）
+         *      若中奖弹出      恭喜恭喜，奖品为10w RMB 劳斯莱斯优惠券
+         *      若未中奖弹出    再接再厉
+         */
+
+        const btn = document.getElementById("btn")
+
+        btn.addEventListener("click", function () {
+            //回调实现
+
+            // setTimeout(function () {
+            //     let n = rand(1, 100)
+            //     if (n <= 30) {
+            //         console.log("恭喜恭喜，奖品为10w RMB 劳斯莱斯优惠券")
+            //     } else {
+            //         console.log("再接再厉")
+            //     }
+            // }, 1000)
+
+            //promise实现
+            const p = new Promise((resolve, reject) => {
+                setTimeout(function () {
+                    let n = rand(1, 100)
+                    if (n <= 30) {
+                        resolve(n) // 将promise对象的状态设置为成功
+                    } else {
+                        reject(n) // 将promise对象的状态设置为失败
+                    }
+                }, 1000)
+            })
+            //调用then方法
+            p.then((value) => {
+                console.log("恭喜恭喜，奖品为10w RMB 劳斯莱斯优惠券，您的中奖数字为" + value)
+            }, (reason) => {
+                console.log("再接再厉，您的号码为" + reason)
+            })
+        })
+    </script>
+</body>
+
+</html>
