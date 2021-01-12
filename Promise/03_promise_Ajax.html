@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <h2>Promise 封装 Ajax 操作</h2>
+    <button id="btn">点击发送AJAX</button>
+    <script type="text/javascript">
+        // 接口地址 https://api.apiopen.top/getJoke
+        const btn = document.getElementById("btn")
+        // 获取元素对象
+        btn.addEventListener("click", function () {
+            // ajax方式
+
+            // 1.创建对象
+            // const xhr = new XMLHttpRequest()
+            // // 2.初始化
+            // xhr.open("get", "https://api.apiopen.top/getJoke")
+            // // 3.发送
+            // xhr.send()
+            // // 4.处理响应结果
+            // xhr.onreadystatechange = function () {
+            //     if (xhr.readyState === 4) {
+            //         // 判断响应状态码
+            //         if (xhr.status >= 200 && xhr.status <= 300) {
+            //             // 成功
+            //             console.log(xhr.response)
+            //         } else {
+            //             // 失败
+            //             console.log(xhr.status)
+            //         }
+            //     }
+            // }
+
+            // promise方式
+
+            // 创建promise对象
+            const p = new Promise((resolve, reject) => {
+                // 1.创建对象
+                const xhr = new XMLHttpRequest()
+                // 2.初始化
+                xhr.open("get", "https://api.apiopen.top/getJoke")
+                // 3.发送
+                xhr.send()
+                // 4.处理响应结果
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        // 判断响应状态码
+                        if (xhr.status >= 200 && xhr.status <= 300) {
+                            // 成功
+                            resolve(xhr.response)
+                        } else {
+                            // 失败
+                            reject(xhr.status)
+                        }
+                    }
+                }
+            })
+            p.then(res => {
+                console.log(res)
+            }, err => {
+                console.log(err)
+            })
+        })
+    </script>
+</body>
+
+</html>
