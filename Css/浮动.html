@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        .parent {
+            width: 600px;
+            height: 200px;
+            background-color: royalblue;
+            margin-bottom: 20px;
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            float: left;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            float: right;
+        }
+
+        .sp1 {
+            background-color: yellow;
+            float: left;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         *
+         * 浮动float：
+         *      - none
+         *      - left
+         *      - right
+         * 
+         * 特点：
+         *      1、浮动元素会完全脱离文档流，不再占据文档流中的位置
+         *      2、设置浮动以后元素会向父元素的左侧或右侧移动
+         *      3、浮动元素默认不会从父元素中移出
+         *      4、浮动元素向左或者向右移动时，不会超过它前边的其它浮动元素
+         *      5、如果浮动元素的上边是一个没有浮动的块元素，则浮动元素无法上移
+         *      6、浮动元素不会超过它上边的浮动的兄弟元素,最多就是和它一样高
+         *      7、浮动元素不会盖住文字，文字会自动环绕在浮动元素的周围
+         *      8、块元素脱离文档流后不再独占页面一行，不舍这高宽时，宽度和高度默认被内容撑开
+         *      9、行内元素脱离文档流后会变成块元素，特点和块元素一样
+         *      
+         */
+    </script>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="box1">左移</div>
+    </div>
+    <div class="parent">
+        <div class="box2">右移</div>
+    </div>
+    <div class="parent">
+        <div class="box1">文字不会覆盖</div>
+        <p>的左侧元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动设置浮动以后元素会向父元素的左侧或右侧移动
+        </p>
+    </div>
+    <span class="sp1">我是一个行内元素</span>
+</body>
+
+</html>
