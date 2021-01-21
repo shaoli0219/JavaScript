@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长表格</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <p>长表格</p>
+    <!-- 
+        thead 
+        tbody 
+        tfoot
+            位置可变且不影响表格结构
+
+        th 
+            表示头部单元格 自动加粗居中
+    -->
+    <table border="1" width="50%" cellspacing="2">
+        <thead>
+            <tr>
+                <th>日期</th>
+                <th>收入</th>
+                <th>支出</th>
+                <th>合计</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2000.1.1</td>
+                <td>500</td>
+                <td>200</td>
+                <td>700</td>
+            </tr>
+            <tr>
+                <td>2000.1.1</td>
+                <td>500</td>
+                <td>200</td>
+                <td>700</td>
+            </tr>
+            <tr>
+                <td>2000.1.1</td>
+                <td>500</td>
+                <td>200</td>
+                <td>700</td>
+            </tr>
+            <tr>
+                <td>2000.1.1</td>
+                <td>500</td>
+                <td>200</td>
+                <td>700</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>合计</td>
+                <td>2000</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+
+</html>
