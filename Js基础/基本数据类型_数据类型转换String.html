@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型转化</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        /**
+         * 将其他数据类型转化为String
+         *
+         * 方式1：调用被转换数据的toString()方法
+         *      - null和undefined这两个值没有toString()方法，如果调用会报错
+         * 
+         * 方式2：调用String()方法，并将被转换的数据作为参数传入
+         *      - null会被转成字符null
+         *      - undefined会被转成undefined
+         *      
+         */
+
+        let a = 123;
+        a = a.toString();
+        console.log(typeof a); // string
+        console.log(a); // 123
+
+        let b = null;
+        b = String(b);
+        console.log(typeof b); // string
+        console.log(b); // null
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>
