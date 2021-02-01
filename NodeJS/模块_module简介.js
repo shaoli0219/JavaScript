@@ -27,6 +27,13 @@
  *          - 当前模块的完整路径
  *      __dirname
  *          - 当前模块所在文件夹的路径
+ * 
+ *  - exprots 和 module.exports
+ *          - exports只能使用.的方式来向外暴露
+ *              exports.xxx = xxx
+ *          - module.exports既可以用“.”的方式也可直接赋值
+ *              module.exports.xxx = xxx
+ *              module.exports = {}
  */
 
 // var md = require('./module.js');
