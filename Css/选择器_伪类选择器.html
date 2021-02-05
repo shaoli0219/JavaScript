@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+        /* ul.diff-type>:first-child {
+            color: #ff577f
+        } */
+
+        /* ul.diff-type>li:last-child {
+            color: #ff884b
+        } */
+
+        /* ul.same-type>li:last-of-type {
+            color: #ffc764
+        } */
+
+        ul>li:not(:nth-child(3)) {
+            color: #cdfffc
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         * 伪类：不存在的类，特殊的类
+         *      - 伪类用来描述一个元素的特殊状态
+         *      - 伪类一般情况都是使用“:”开头
+         * 
+         * 常用伪类：
+         *      :first-child
+         *      :last-child
+         *      :nth-child() 选中第n个子元素
+         *          特殊值：
+         *              n 0-正无穷
+         *              2n(even) 偶数位
+         *              2n+1(odd) 奇数位
+         *      - 以上伪类是根据所有子元素进行排序
+         * 
+         *      :first-of-type
+         *      :last-of-type
+         *      :nth-of-type()
+         *      - 以上伪类是根据同类型子元素进行排序
+         * 
+         *      :not() 除了
+         */
+    </script>
+</head>
+
+<body>
+    <ul class="diff-type">
+        <span>item_00</span>
+        <li>item_01</li>
+        <li>item_02</li>
+        <li>item_03</li>
+        <li>item_04</li>
+        <li>item_05</li>
+    </ul>
+
+    <ul class="same-type">
+        <span>item_00</span>
+        <li>item_01</li>
+        <li>item_02</li>
+        <li>item_03</li>
+        <li>item_04</li>
+        <li>item_05</li>
+    </ul>
+
+    <ul class="not-type">
+        <li>item_01</li>
+        <li>item_02</li>
+        <li>item_03</li>
+        <li>item_04</li>
+        <li>item_05</li>
+    </ul>
+</body>
+
+</html>
