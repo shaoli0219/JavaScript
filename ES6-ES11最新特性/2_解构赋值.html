@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>解构赋值</title>
 </head>
 
@@ -28,17 +27,19 @@
             }
         }
 
-        // let {
-        //     name,
-        //     age,
-        //     action
-        // } = zhao;
+        // 多个
+        let {
+            name,
+            age,
+            action
+        } = zhao;
 
-        // console.log(name);
-        // console.log(age);
-        // console.log(action);
-        // action();
+        console.log(name);
+        console.log(age);
+        console.log(action);
+        action();
 
+        // 单个
         let {
             action
         } = zhao;
