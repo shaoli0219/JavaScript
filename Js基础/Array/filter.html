@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        /**
+         * filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
+         * 
+         */
+
+        const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+        const res = words.filter(item => item.length > 6);
+        console.log(res);
+
+        // const isBigEnough1 = function (item) {
+        //     return item > 10
+        // }
+        // console.log([12, 5, 8, 130, 44].filter(isBigEnough1));
+
+        // function isBigEnough2(item) {
+        //     return item > 10
+        // }
+        // console.log([12, 5, 8, 130, 44].filter(isBigEnough2));
+
+        // const isBigEnough3 = item => item > 10
+        // console.log([12, 5, 8, 130, 44].filter(isBigEnough3));
+
+
+        // const isBigEnough4 = (item) => {
+        //     return item > 10
+        // }
+        // console.log([12, 5, 8, 130, 44].filter(item => isBigEnough4(item)));
+
+        const isBigEnough5 = () => {
+            return item => item > 10
+        }
+
+        console.log([12, 5, 8, 130, 44].filter(isBigEnough5()));
+
+        // console.log([12, 5, 8, 130, 44].filter(item => item > 10));
+
+        // console.log([12, 5, 8, 130, 44].filter(function (item) {
+        //     return item > 10
+        // }));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
