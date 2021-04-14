@@ -13,10 +13,7 @@
         //1.数组的解构赋值
         const names = ['秦始皇', '汉武帝', '唐太宗', '宋高祖'];
         let [qin, han, tang, song] = names;
-        console.log(qin);
-        console.log(han);
-        console.log(tang);
-        console.log(song);
+        console.log(qin, han, tang, song);
 
         //2.对象的解构赋值
         const zhao = {
@@ -34,16 +31,25 @@
             action
         } = zhao;
 
-        console.log(name);
-        console.log(age);
-        console.log(action);
-        action();
+        console.log(name, age, action);
+        // action();
 
         // 单个
-        let {
-            action
-        } = zhao;
-        action();
+        // let {
+        //     action
+        // } = zhao;
+        // action();
+
+        // 连续解构赋值
+        let obj = { a: { b: { c: 1 } } };
+        // 没有解构赋值
+        console.log(obj.a.b.c)
+        // 解构赋值
+        const { a: { b: { c } } } = obj;
+        console.log(c)
+        // 解构赋值别名
+        const { a: { b: { c: data } } } = obj;
+        console.log(data)
     </script>
 </body>
 
