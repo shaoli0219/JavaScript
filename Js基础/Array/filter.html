@@ -14,16 +14,15 @@
         /**
          * Array.prototype.filter()
          * 
-         * filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素。
-         * map()    方法创建一个新数组，其结果是该数组中的每个元素是调用一次提供的函数后的返回值。
+         * filter() 方法创建一个`新数组`, 其包含通过所提供函数实现的测试的所有元素。
          */
 
-        /*****************************示例1*******************************/
+        //demo1 按条件过滤字符串
         const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
         const res = words.filter(item => item.length > 6);
         console.log(res);
 
-        /*****************************示例2*******************************/
+        //demo2 按条件过滤数组
         // 匿名函数
         console.log([12, 5, 8, 130, 44].filter(function (item) {
             return item > 10
