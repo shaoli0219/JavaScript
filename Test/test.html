@@ -13,13 +13,12 @@
 
 <body>
     <script type="text/javascript">
-        function foo() {
-            var x = 'Hello, ' + y;
-            console.log(x);
-            var y = 'Bob';
+        for (let i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(new Date, i);
+            }, 1000);
         }
 
-        foo();
     </script>
 </body>
 

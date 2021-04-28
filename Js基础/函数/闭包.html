@@ -33,6 +33,33 @@
         var f1 = results[0];
         var f2 = results[1];
         var f3 = results[2];
+        f1(); //16
+        f2(); //16
+        f3(); //16
+
+        //demo2
+        function createCounter() {
+            let counter = 0
+            const myFunction = function () {
+                counter = counter + 1
+                return counter
+
+            }
+            return myFunction
+        }
+        const increment = createCounter()
+        const c1 = increment()
+        const c2 = increment()
+        const c3 = increment()
+        console.log('example increment', c1, c2, c3)// 1 2 3
+
+        //demo3
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(new Date, i);
+            }, 1000);
+        }
+        console.log(new Date, i);
     </script>
 </body>
 
