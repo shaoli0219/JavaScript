@@ -12,13 +12,13 @@
 </head>
 
 <body>
+    <h1>test</h1>
     <script type="text/javascript">
-        for (let i = 0; i < 5; i++) {
-            setTimeout(function () {
-                console.log(new Date, i);
-            }, 1000);
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
         }
-
+        getRandomInt(10);
+        console.log(getRandomInt(100));
     </script>
 </body>
 
