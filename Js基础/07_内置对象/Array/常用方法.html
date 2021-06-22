@@ -13,9 +13,11 @@
         let arr = ["Tom", "John", "Ari"];
 
         /**
-         * push()
-         *  - 向数组末尾添加一个或多个元素，返回数组新长度
+         * Array.prototype.push()
+         * 
+         * 向数组末尾添加一个或多个元素，返回数组新长度
          */
+
         // 添加一个元素
         let resutl = arr.push("Bob");
         console.log(resutl, arr)
@@ -24,16 +26,20 @@
         console.log(resutl, arr)
 
         /**
-         * pop()
-         *  - 删除数组最后一个元素，并返回该元素
+         * Array.prototype.pop()
+         * 
+         * 删除数组最后一个元素，并返回该元素
          */
+
         resutl = arr.pop()
         console.log(resutl, arr)
 
         /**
-         * unshift()
-         *  - 向数组开头添加一个或多个元素，返回数组新长度
+         * Array.prototype.unshift()
+         * 
+         * 向数组开头添加一个或多个元素，返回数组新长度
          */
+
         // 添加一个元素
         resutl = arr.unshift("Frank");
         console.log(resutl, arr)
@@ -42,17 +48,21 @@
         console.log(resutl, arr)
 
         /**
-         * shift()
-         *  - 删除数组第一个元素，并返回该元素
+         * Array.prototype.shift()
+         * 
+         * 删除数组第一个元素，并返回该元素
          */
+
         resutl = arr.shift()
         console.log(resutl, arr)
 
         /**
-         * concat()
-         *  - 链接两个或多个数组，并返回结果
-         *  - 该方法不会对原数组产生影响
+         * Array.prototype.concat()
+         * 
+         * 链接两个或多个数组，并返回结果
+         * 该方法不会对原数组产生影响
          */
+
         let arr1 = ["关羽", "张飞", "刘备"]
         let arr2 = ["中国", "美国", "德国"]
         let newArr = arr.concat(arr1)
@@ -66,11 +76,13 @@
         console.log(newArr)
 
         /**
-         * join()
-         *  - 把数组转换为字符串,并返回结果
-         *  - 该方法不会对原数组产生影响
-         *  - 可以指定字符串作为参数，这个参数将成为新字符串的连接符(默认逗号)ce
+         * Array.prototype.join()
+         * 
+         * 把数组转换为字符串,并返回结果
+         * 该方法不会对原数组产生影响
+         * 可以指定字符串作为参数，这个参数将成为新字符串的连接符(默认逗号)ce
          */
+
         newArr = arr.join()
         console.log(newArr) // Harry,Ian,Frank,Tom,John,Ari,Bob,Clare,Dan
 
@@ -78,19 +90,23 @@
         console.log(newArr) // Harry@_@Ian@_@Frank@_@Tom@_@John@_@Ari@_@Bob@_@Clare@_@Dan
 
         /**
-         * reverse()
-         *  - 反转字符串
-         *  - 该方法会对原数组产生影响
+         * Array.prototype.reverse()
+         * 
+         * 反转字符串
+         * 该方法会对原数组产生影响
          */
+
         newArr = arr.reverse()
         console.log(arr)
         console.log(newArr)
 
         /**
-         * sort()
-         *  - 排序,默认按照unicode编码排序，即使是纯数字也会按unicode
-         *  - 该方法会对原数组产生影响
+         * Array.prototype.sort()
+         * 
+         * 排序,默认按照unicode编码排序，即使是纯数字也会按unicode
+         * 该方法会对原数组产生影响
          */
+
         arr = ['John', 'Bob', 'Ari', 'Eric', 'Frank', 'Gallen', 'Clare']
         newArr = arr.sort()
         console.log(arr)
