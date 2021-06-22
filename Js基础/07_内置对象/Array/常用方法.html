@@ -114,7 +114,6 @@
 
 
         /**
-         * 
          * 直接使用sort()排序纯数字数组可能会失败
          * 给sort()添加一个回调可以来指定排序规则
          */
@@ -128,6 +127,15 @@
         console.log(arr.sort(function (a, b) {
             return b - a
         }))
+
+        /**
+         * Array.prototype.toString()
+         *
+         * toString() 返回一个字符串，表示指定的数组及其元素。
+         */
+
+        const array1 = [1, 2, 'a', '1a'];
+        console.log(array1.toString());// expected output: "1,2,a,1a"
     </script>
 </head>
 
