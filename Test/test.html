@@ -13,12 +13,36 @@
 
 <body>
     <h1>test</h1>
+    <button id="btn">点击</button>
+    <div id="msg"></div>
     <script type="text/javascript">
-        function getRandomInt(max) {
-            return Math.floor(Math.random() * max);
+        let btn = document.getElementById("btn")
+        let msg = document.getElementById("msg")
+
+        let getRandomInt = function () {
+            return Math.floor(Math.random() * 100 + 1)
         }
-        getRandomInt(10);
-        console.log(getRandomInt(100));
+
+        btn.addEventListener("click", () => {
+            const p = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    let n = getRandomInt()
+                    if (n < 31)
+                        resolve(n)
+                    else
+                        reject(n)
+                }, 1000)
+            })
+            p.then(
+                value => {
+                    msg.innerHTML = `成功：${value}`
+                },
+                reason => {
+                    msg.innerHTML = `失败：${reason}`
+                }
+            )
+
+        })
     </script>
 </body>
 
