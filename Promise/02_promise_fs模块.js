@@ -8,7 +8,7 @@ const fs = require('fs')
 
 //promise形式
 let p = new Promise((resolve, reject) => {
-    fs.readFile('Promise/resource/content.txt', (err, data) => {
+    fs.readFile('./resource/content.txt', (err, data) => {
         //如果失败
         if (err) reject(err)
         //如果成功
