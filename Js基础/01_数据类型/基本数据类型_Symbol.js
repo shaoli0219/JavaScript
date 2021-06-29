@@ -1,4 +1,6 @@
 /**
+ * es6新增，表示独一无二的值
+ * 
  * symbol 是一种基本数据类型 （primitive data type）。
  * Symbol()函数会返回symbol类型的值，该类型具有静态属性和静态方法。
  * 每个从Symbol()返回的symbol值都是唯一的。一个symbol值能作为对象属性的标识符；这是该数据类型仅有的目的。
