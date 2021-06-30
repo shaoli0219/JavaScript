@@ -4,8 +4,7 @@
  * switch语句评估一个表达式，将表达式的值与case子句匹配，并执行与该情况相关联的语句
  */
 
-let expr = 'Mangoes'
-
+let expr = 'Mangoes';
 switch (expr) {
     case 'orange':
         console.log('Oranges are $0.59 a pound.');
