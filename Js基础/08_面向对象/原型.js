@@ -15,7 +15,8 @@
  *      以后创建构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的原型对象中
  */
 
-function MyClass() { }
+function MyClass() {}
+
 console.log(MyClass.prototype)
 
 var mc = new MyClass()
