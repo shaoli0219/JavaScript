@@ -25,7 +25,7 @@ console.log(set1.has('a'));
 /**
  * Set.prototype.add()
  * 
- * The add() method appends a new element with a specified value to the end of a Set object.
+ * 在Set对象尾部添加一个元素。返回该Set对象。
  */
 
 set1.add('Bob');
@@ -53,7 +53,7 @@ console.log(set1.size);
 /**
  * Set.prototype.clear()
  *
- * The clear() method removes all elements from a Set object.
+ * 移除Set对象内的所有元素。
  */
 
 set1.clear();
