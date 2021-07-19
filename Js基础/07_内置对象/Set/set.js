@@ -24,10 +24,13 @@
 
 const set1 = new Set([1, 2, '121', 'alice']);
 
+// Set.prototype.size
+console.log(set1.size); // expected output: 4
+
 // Set.prototype.has()
 console.log(set1.has(1));       // expected output: true
 console.log(set1.has('121'));   // expected output: true
-console.log(set1.has('a'));     // expected output: false
+console.log(set1.has('a'));     // expected output: false 
 
 // Set.prototype.add()
 set1.add('Bob');
@@ -35,9 +38,6 @@ set1.add('Bob');
 // Set.prototype.delete()
 console.log(set1.delete('bar'));    // Returns false. No "bar" element found to be deleted.
 console.log(set1.delete(1));        // Returns true. Successfully removed.
-
-// Set.prototype.size
-console.log(set1.size); // expected output: 5
 
 // Set.prototype.clear()
 set1.clear();
