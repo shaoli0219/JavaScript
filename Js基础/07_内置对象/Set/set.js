@@ -1,7 +1,13 @@
 /**
  * set 对象
  * 
- * set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
+ * set 对象允许你存储任何类型的 唯一值 ，无论是原始值或者是对象引用。
+ * 
+ * Set.prototype.keys()             返回一个引用的Iterator对象。它包含按照顺序插入Map对象中每个元素的key值。
+ * 
+ * Set.prototype.entries()          返回一个新的包含 [key, value] 对的 Iterator 对象，返回的迭代器的迭代顺序与 Map 对象的插入顺序相同。
+ * 
+ * Set.prototype.values()           返回一个新的Iterator对象。它包含按顺序插入Map对象中每个元素的value值。
  */
 
 const set1 = new Set([1, 2, '121', 'alice']);

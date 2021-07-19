@@ -18,16 +18,32 @@
  * Map.prototype.clear()            移除Map对象的所有键/值对 。
  *
  * Map.prototype.keys()             返回一个引用的Iterator对象。它包含按照顺序插入Map对象中每个元素的key值。
+ * 
+ * Map.prototype.entries()          返回一个新的包含 [key, value] 对的 Iterator 对象，返回的迭代器的迭代顺序与 Map 对象的插入顺序相同。
+ * 
+ * Map.prototype.values()           返回一个新的Iterator对象。它包含按顺序插入Map对象中每个元素的value值。
  *
  */
 
-// Map.prototype.keys()
-var myMap = new Map();
+
+const myMap = new Map();
 myMap.set("0", "foo");
 myMap.set(1, "bar");
 myMap.set({}, "baz");
-var mapIter = myMap.keys();
-console.log(mapIter.next().value); // "0"
-console.log(mapIter.next().value); // 1
-console.log(mapIter.next().value); // Object
+
+// Map.prototype.keys()
+const mapKeys = myMap.keys();
+console.log(mapKeys.next().value); // "0"
+console.log(mapKeys.next().value); // 1
+console.log(mapKeys.next().value); // Object
+
+// Map.prototype.entries() 
+const mapEntry = myMap.entries();
+console.log(mapEntry.next().value); // expected output: ["0", "foo"]
+console.log(mapEntry.next().value); // expected output: [1, "bar"]
+
+// Map.prototype.values() 
+const mapValues = myMap.values();
+console.log(mapValues.next().value); // foo
+console.log(mapValues.next().value); // bar
 
