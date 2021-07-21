@@ -1,5 +1,3 @@
-let arr = ["Tom", "John", "Ari"];
-
 /**
  * Array
  * 
@@ -15,6 +13,8 @@ let arr = ["Tom", "John", "Ari"];
  * 
  * Array.prototype.pop() 删除数组最后一个元素，并返回该元素
  */
+
+let arr = ["Tom", "John", "Ari"];
 
 // push()
 let resutl = arr.push("Bob");
