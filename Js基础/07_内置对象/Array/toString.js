@@ -5,8 +5,10 @@
  */
 
 const array1 = [1, 2, 'a', '1a'];
-console.log(array1.toString());// expected output: "1,2,a,1a"
+console.log(array1.toString());
+// expected output: "1,2,a,1a"
 
 const myHonda = { color: 'red', wheels: 4, engine: { cylinders: 4, size: 2.2 } };
 console.log(myHonda)
-console.log(myHonda.toString());// expected output: "[object Object]"
+console.log(myHonda.toString());
+// expected output: "[object Object]"
