@@ -7,12 +7,43 @@
     <title>border-radius</title>
     <link rel="stylesheet" type="text/css" href="" />
     <style type="text/css">
+        #rcorners1 {
+            border-radius: 50px / 15px;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
 
+        #rcorners2 {
+            border-radius: 15px / 50px;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+
+        #rcorners3 {
+            border-radius: 50%;
+            background: #73AD21;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
     </style>
 </head>
 
 <body>
+    <h1>border-radius 属性</h1>
 
+    <p>椭圆边框 - border-radius: 50px / 15px:</p>
+    <p id="rcorners1"></p>
+
+    <p>椭圆边框 - border-radius: 15px / 50px:</p>
+    <p id="rcorners2"></p>
+
+    <p>椭圆边框 - border-radius: 50%:</p>
+    <p id="rcorners3"></p>
     <script type="text/javascript">
         /**
          * 四个值 - border-radius: 15px 50px 30px 5px;（依次分别用于：左上角、右上角、右下角、左下角）
