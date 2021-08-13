@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>background属性</title>
-    <link rel="stylesheet" type="text/css" href="" />
     <style type="text/css">
         /* 写法等价-简写 */
         body {
@@ -19,11 +18,39 @@
             background-repeat: no-repeat;
             background-position: right top;
         }
+
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .item-box {
+            width: 60%;
+        }
+
+        .bg-div {
+            float: left;
+            width: 200px;
+            height: 150px;
+        }
+
+        .bgfirst {
+            background-color: green;
+            opacity: 1;
+        }
+
+        .bgsecond {
+            background-color: green;
+            opacity: 0.6;
+        }
+
+        .bgthird {
+            background-color: green;
+            opacity: 0.2;
+        }
     </style>
-</head>
-
-<body>
-
     <script type="text/javascript">
         /**
          * background
@@ -41,6 +68,29 @@
          * background-clip:border-box(背景被裁剪到边框盒。)|padding-box|content-box;
          */
     </script>
+</head>
+
+<body>
+
+    <div class="item-box">
+        <h3>background-color(opacity)</h3>
+        <p>当使用 opacity 属性为元素背景添加透明度时，其所有子元素也会变为透明。这可能会使完全透明的元素内的文本难以阅读</p>
+        <div class="clearfix">
+            <div class="bg-div bgfirst">opacity: 1</div>
+            <div class="bg-div bgsecond">opacity: 0.6</div>
+            <div class="bg-div bgthird">opacity: 0.2</div>
+        </div>
+    </div>
+
+    <div class="item-box">
+        <h3>background-color(RGBA)</h3>
+        <p>当使用 RGBA 属性为元素背景添加透明度时，其所有子元素不会变为透明。</p>
+        <div class="clearfix">
+            <div class="bg-div" style="background: rgba(0, 128, 0, 0.1)">opacity: 1</div>
+            <div class="bg-div" style="background: rgba(0, 128, 0, 0.6)">opacity: 0.6</div>
+            <div class="bg-div" style="background: rgba(0, 128, 0, 0.2)">opacity: 0.2</div>
+        </div>
+    </div>
 </body>
 
 </html>

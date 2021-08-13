@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="/lib/jquery-3.6.0/jquery.min.js"></script>
+    <style type="text/css">
+        .item-box {
+            width: 800px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .rgb-box {
+            width: 800px;
+            line-height: 80px;
+            text-align: center;
+            color: white;
+            font-size: 120%;
+            font-weight: bold;
+            font-family: Consolas, 'Courier New', Courier, monospace;
+        }
+
+        .slider-box {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setRGB();
+            setRGBA();
+
+            $("#slideRed").bind('input propertychange', function () {
+                setRGB();
+            })
+            $("#slideGreen").bind('input propertychange', function () {
+                setRGB();
+            })
+            $("#slideBlue").bind('input propertychange', function () {
+                setRGB();
+            })
+
+            $("#slideReda").bind('input propertychange', function () {
+                setRGBA();
+            })
+            $("#slideGreena").bind('input propertychange', function () {
+                setRGBA();
+            })
+            $("#slideBluea").bind('input propertychange', function () {
+                setRGBA();
+            })
+            $("#slidea").bind('input propertychange', function () {
+                setRGBA();
+            })
+        });
+
+        function setRGB() {
+            let rgbStrR = $("#slideRed").val();
+            let rgbStrG = $("#slideGreen").val();
+            let rgbStrB = $("#slideBlue").val();
+            let rgbStr = `rgb(${rgbStrR}, ${rgbStrG}, ${rgbStrB})`;
+            $("#redtxt").html(rgbStrR);
+            $("#greentxt").html(rgbStrG);
+            $("#bluetxt").html(rgbStrB);
+            $("#rgbresulttext").html(rgbStr);
+            $("#rgbresulttext").css("background-color", rgbStr);
+        }
+
+        function setRGBA() {
+            let rgbStrRa = $("#slideReda").val();
+            let rgbStrGa = $("#slideGreena").val();
+            let rgbStrBa = $("#slideBluea").val();
+            let slidea = $("#slidea").val() / 10;
+            let rgbStr = `rgb(${rgbStrRa}, ${rgbStrGa}, ${rgbStrBa},${slidea})`;
+            $("#redtxta").html(rgbStrRa);
+            $("#greentxta").html(rgbStrGa);
+            $("#bluetxta").html(rgbStrBa);
+            $("#atxta").html(slidea);
+            $("#rgbaresulttexta").html(rgbStr);
+            $("#rgbaresulttexta").css("background", rgbStr);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="item-box">
+        <h3>RGB颜色</h3>
+        <div class="rgb-box">
+            <p id="rgbresulttext" style="line-height: 80px; color: rgb(255, 255, 255);">rgb(255, 99, 71)</p>
+        </div>
+        <div class="slider-box">
+            <div class="slider">
+                <p>Red</p>
+                <input type="range" id="slideRed" name="slideRed" value="255" min="0" max="255">
+                <div id="redtxt">255</div>
+            </div>
+            <div class="slider">
+                <p>Green</p>
+                <input type="range" id="slideGreen" name="slideGreen" value="99" min="0" max="255">
+                <div id="greentxt">255</div>
+            </div>
+            <div class="slider">
+                <p>Blue</p>
+                <input type="range" id="slideBlue" name="slideBlue" value="71" min="0" max="255">
+                <div id="bluetxt">255</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="item-box">
+        <h3>RGBA颜色</h3>
+        <div class="rgb-box">
+            <p id="rgbaresulttexta" style="line-height: 80px; color: rgba(255, 255, 255);">rgba(255, 99, 71,0.5)</p>
+        </div>
+        <div class="slider-box">
+            <div class="slider">
+                <p>Red</p>
+                <input type="range" id="slideReda" name="slideRed" value="255" min="0" max="255">
+                <div id="redtxta">255</div>
+            </div>
+            <div class="slider">
+                <p>Green</p>
+                <input type="range" id="slideGreena" name="slideGreen" value="99" min="0" max="255">
+                <div id="redtxta">255</div>
+            </div>
+            <div class="slider">
+                <p>Blue</p>
+                <input type="range" id="slideBluea" name="slideBlue" value="71" min="0" max="255">
+                <div id="redtxta">255</div>
+            </div>
+            <div class="slider">
+                <p>Alpha</p>
+                <input type="range" id="slidea" name="slidea" value="5" min="0" max="10">
+                <div id="atxta">0.5</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
