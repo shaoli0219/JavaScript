@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Sizing</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        body {
+            width: 40%;
+        }
+
+        .div1 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid blue;
+        }
+
+        .div2 {
+            width: 300px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid red;
+        }
+
+        .div3 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        .div4 {
+            width: 300px;
+            height: 100px;
+            padding: 50px;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <h2>CSS Box Sizing</h2>
+    <p>CSS box-sizing 属性允许我们在元素的总宽度和高度中包括内边距（填充）和边框。</p>
+    <h3> 没有加入属性box-sizing: border-box时</h3>
+    <div class="div1">这个 div 更小（宽度为 300 像素，高度为 100 像素）。</div>
+    <br>
+    <div class="div2">这个 div 更大（宽度也是 300 像素，高度也是 100 像素）。</div>
+    <h3> 加入属性box-sizing: border-box时</h3>
+    <div class="div3">现在，两个 div 的尺寸是一样的！</div>
+    <br>
+    <div class="div4">Hello！</div>
+    <h3>注意</h3>
+    <p>由于使用 box-sizing: border-box; 的效果如此之好，许多开发人员希望页面上的所有元素都能够以这种方式工作。
+
+        下面的代码能够确保以这种更直观的方式调整所有元素的大小。许多浏览器已经在对许多表单元素使用 box-sizing: border-box;（但并非全部 - 这就是为什么 input 和 textarea 在 width:
+        100%; 时看起来不同）。
+
+        将其应用于所有元素是安全且明智的：</p>
+
+    * {
+    box-sizing: border-box;
+    }
+</body>
+
+</html>
