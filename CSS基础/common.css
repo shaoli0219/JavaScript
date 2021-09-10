@@ -1,11 +1,10 @@
-/*css 初始化 */
+/*Css 初始化样式 常用公共样式 */
 html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
     margin: 0;
     padding: 0;
 }
 
 /*将标签原有的默认内外边距去掉*/
-
 fieldset, img, input, button {
     border: none; /*去掉边框*/
     padding: 0;
@@ -33,18 +32,19 @@ select, input, textarea {
     margin: 0;
 }
 
-/**/
 textarea {
     resize: none; /*防止拖动*/
 }
 
+/*  去掉图片底部默认的3像素空白缝隙*/
 img {
     border: 0;
-    vertical-align: middle; /*  去掉图片底部默认的3像素空白缝隙*/
+    vertical-align: middle; 
 }
 
+/*合并外边线*/
 table {
-    border-collapse: collapse; /*合并外边线*/
+    border-collapse: collapse; 
 }
 
 body {
@@ -70,17 +70,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: normal; /*不加粗*/
     font-size: 100%;
 }
+
 a{
     text-decoration: none;
 }
+
 s, i, em {
     /*一般起装饰作用*/
     font-style: normal; /*将字体变成正常字体*/
     text-decoration: none; /*去掉中划线*/
 }
+
 .fl{
     float: left;
 }
+
 .fr{
     float: right;
 }
