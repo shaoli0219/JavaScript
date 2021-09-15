@@ -16,6 +16,6 @@ let newStr = `<ul>
               </ul>`;
 
 //3.变量拼接
-let name = '魏翔';
-let out = `${name}is my favoriate actor!`;
+let names = '魏翔';
+let out = `${names}is my favoriate actor!`;
 console.log(out);
