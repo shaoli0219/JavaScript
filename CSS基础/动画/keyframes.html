@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyframes</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example1;
+            animation-duration: 4s;
+            animation-iteration-count: 2;
+        }
+
+        @keyframes example1 {
+            from {
+                background-color: violet;
+            }
+
+            to {
+                background-color: yellow;
+            }
+        }
+
+
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: tomato;
+            animation-name: example2;
+            animation-delay: 2s;
+            animation-duration: 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes example2 {
+            0% {
+                background-color: tomato;
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            animation-name: example3;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes example3 {
+            from {
+                top: 0px;
+            }
+
+            to {
+                top: 200px;
+                background-color: blue;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <h6>下面的例子将 "example" 动画绑定到 <div> 元素。动画将持续 4 秒钟，同时将 <div> 元素的背景颜色从 "red" 逐渐改为 "yellow"</h6>
+    <div class="div1"></div>
+    <h4>animation-direction</h4>
+    <ul>
+        <li>normal - 动画正常播放（向前）。默认值</li>
+        <li>reverse - 动画以反方向播放（向后）</li>
+        <li>alternate - 动画先向前播放，然后向后</li>
+        <li>alternate-reverse - 动画先向后播放，然后向前</li>
+    </ul>
+    <h6>下面的例子将在动画完成 25％，完成 50％ 以及动画完成 100％ 时更改背景颜色和 <div> 元素的位置</h6>
+    <div class="div2"></div>
+    <h4>animation-fill-mode</h4>
+    <ul>
+        <li>none - 默认值。动画在执行之前或之后不会对元素应用任何样式。</li>
+        <li>forwards - 元素将保留由最后一个关键帧设置的样式值（依赖 animation-direction 和 animation-iteration-count）。</li>
+        <li>backwards - 元素将获取由第一个关键帧设置的样式值（取决于 animation-direction），并在动画延迟期间保留该值。</li>
+        <li>both - 动画会同时遵循向前和向后的规则，从而在两个方向上扩展动画属性。</li>
+    </ul>
+    <div class="div3"></div>
+</body>
+
+</html>

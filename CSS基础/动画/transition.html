@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background: tomato;
+            transition: width 2s;
+            transition-timing-function: linear;
+            transition-delay: 1s;
+        }
+
+        .div1:hover {
+            width: 300px;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background: MediumSeaGreen;
+            transition: width 1s, height 1s, transform 1s;
+            transition-timing-function: linear;
+        }
+
+        .div2:hover {
+            width: 150px;
+            height: 150px;
+            transform: rotate(180deg);
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background: violet;
+            transition: all 1s linear 0.5s;
+            transition-timing-function: linear;
+        }
+
+        .div3:hover {
+            width: 100px;
+            height: 100px;
+            transform: translate(100px, 0) rotate(180deg);
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <h4>css过度属性</h4>
+    <ul>
+        <li>transition</li>
+        <li>transition-delay</li>
+        <li>transition-duration</li>
+        <li>transition-property</li>
+        <li>transition-timing-function</li>
+    </ul>
+
+    <h4>transition-timing-function 属性</h4>
+    <ul>
+        <li>ease - 规定过渡效果，先缓慢地开始，然后加速，然后缓慢地结束（默认）</li>
+        <li>linear - 规定从开始到结束具有相同速度的过渡效果</li>
+        <li>ease-in -规定缓慢开始的过渡效果</li>
+        <li>ease-out - 规定缓慢结束的过渡效果</li>
+        <li>ease-in-out - 规定开始和结束较慢的过渡效果</li>
+        <li>cubic-bezier(n,n,n,n) - 允许您在三次贝塞尔函数中定义自己的值</li>
+    </ul>
+
+    <div class="div1">width</div>
+    <br>
+    <div class="div2">width transform</div>
+    <br>
+    <div class="div3">all</div>
+</body>
+
+</html>
