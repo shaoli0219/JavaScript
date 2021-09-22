@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>size()方法</title>
+    <script type="text/javascript" src="../../../assets/lib/jquery-3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        /**
+         * 1.8版后弃用，改用length属性
+         * 
+         * $(selector).length
+         */
+        $(document).ready(function () {
+            $("button").click(function () {
+                console.log($("li").length)
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>输出 li 元素的数目</button>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Soda</li>
+    </ul>
+</body>
+
+</html>

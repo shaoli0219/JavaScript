@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 防止屏幕进行伸缩 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body,
+        html,
+        div,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+
+        #pic {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        #pic #img {
+            width: 400%;
+            height: 300px;
+            position: relative;
+        }
+
+        #img div {
+            width: 25%;
+            height: 300px;
+            float: left;
+            background-color: orange;
+            text-align: center;
+            line-height: 300px;
+            color: white;
+        }
+
+        #circle {
+            width: 72px;
+            height: 40px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            top: -40px;
+        }
+
+        #circle ul li {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            list-style: none;
+            float: left;
+            margin: 15px 5px 0 5px;
+        }
+
+        #circle ul .active {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pic">
+        <div id="img">
+            <div>1111111</div>
+            <div>2222222</div>
+            <div>3333333</div>
+            <div>4444444</div>
+        </div>
+    </div>
+    <div id="circle">
+        <ul>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            var startPos = {};//开始位置
+            var endPos = {};//结束位置
+            var scrollDirection;//滚动方向
+            var timr;//定时器，后面控制速度会使用
+            var touch;//记录触碰节点
+            var index = 0;//记录滑动到第几张图片
+            var oImg = document.getElementById("img");
+            var oCircle = document.getElementById("circle");
+            var aCircle = oCircle.getElementsByTagName("li");
+            var ImgWidth;//图片宽度
+            var speed; //滑动速度
+            var target;//目标
+            function slide(index) {
+                for (var i = 0; i < aCircle.length; i++) {
+                    aCircle[i].className = '';
+                }
+                aCircle[index].className = 'active';
+                ImgWidth = parseInt(oImg.offsetWidth / aCircle.length);
+                target = -ImgWidth * index;
+                timer = setInterval(function () {
+                    speed = speed > 0 ? Math.floor((target - oImg.offsetLeft) / 5) : Math.ceil((target - oImg.offsetLeft) / 5);
+                    if (target == oImg.offsetLeft) {
+                        clearInterval(timer);
+                    } else {
+                        oImg.style.left = oImg.offsetLeft + speed + 'px';
+                    }
+                }, 30);
+            }
+            oImg.ontouchstart = function (event) {
+                touch = event.targetTouches[0];//取得第一个touch的坐标值
+                startPos = { x: touch.pageX, y: touch.pageY }
+                console.log(startPos)
+                scrollDirection = 0;
+            }
+            oImg.ontouchmove = function (event) {
+                // 如果有多个地方滑动，我们就不发生这个事件
+                if (event.targetTouches.length > 1) {
+                    return
+                }
+                touch = event.targetTouches[0];
+                endPos = { x: touch.pageX, y: touch.pageY }
+                // 判断出滑动方向，向右为1，向左为-1
+                scrollDirection = touch.pageX - startPos.x > 0 ? 1 : -1;
+                console.log(scrollDirection)
+            }
+            oImg.ontouchend = function () {
+                if (scrollDirection == 1) {
+                    if (index >= 1 && index <= aCircle.length - 1) {
+                        index--;
+                        slide(index);
+                    } else {
+                        return
+                    }
+                } else if (scrollDirection == -1) {
+                    if (index >= 0 && index <= aCircle.length - 2) {
+                        index++;
+                        slide(index);
+                    } else {
+                        return
+                    }
+                }
+            }
+            for (var i = 0; i < aCircle.length; i++) {
+                aCircle[i].index = i;
+                aCircle[i].onclick = function () {
+                    slide(this.index);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index()方法</title>
+    <script type="text/javascript" src="../../../assets/lib/jquery-3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        /**
+         * 规定要获得 index 位置的元素。可以是 DOM 元素或 jQuery 选择器。
+         * 
+         * $(selector).index(element)
+         */
+        $(function () {
+            $("li").click(function () {
+                alert($(this).index());
+            });
+
+            $("button").click(function () {
+                alert($(".hot").index($("#favorite")));
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <p>点击列表项可获得其相对于同胞元素的 index 位置：</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Soda</li>
+    </ul>
+
+    <p>请点击下面的按钮，以获得 id="favorite" 的元素相对于 jQuery 选择器 (class="hot") 的 index：</p>
+    <button>获得 index</button>
+    <ul>
+        <li>Milk</li>
+        <li class="hot">Tea</li>
+        <li class="hot" id="favorite">Coffee</li>
+    </ul>
+</body>
+
+</html>
