@@ -32,3 +32,15 @@ const array1 = [0, 1, 2, 3, 4];
 const reducer = (accumulator, currentValue, ...rest) => accumulator + currentValue;
 console.log(array1.reduce(reducer)); //expected output: 10
 console.log(array1.reduce(reducer, 10)); //expected output: 20
+
+//demo2 字符串处理
+const files = ['foo.txt ', '.bar', '   ', 'baz.foo'];
+const filePaths = files.reduce((acc, file) => {
+    const fileName = file.trim();
+    if (fileName) {
+        const filePath = `~/cool_app/${fileName}`;
+        acc.push(filePath);
+    }
+    return acc;
+}, []);
+console.log(filePaths); // [ '~/cool_app/foo.txt', '~/cool_app/.bar', '~/cool_app/baz.foo' ]
