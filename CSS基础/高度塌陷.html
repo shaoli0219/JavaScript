@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高度塌陷</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        .outer {
+            border: 6px red solid;
+
+            /* float: left; */
+            /* display: inline-block; */
+            overflow: hidden;
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            float: left;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            margin-top: 100px;
+            background-color: royalblue;
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         * 高度塌陷问题
+         *
+         * - 在浮动布局中，父元素的高度如果是被子元素撑开的话，当子元素开启浮动属性脱离文档流后，将会无法撑起父元素的高度，导致父元素塌陷。
+         * - 父元素高度塌陷后，其下的元素会自动上移造成布局混乱，所以高度塌陷问题需要及时处理。
+         *
+         * BFC(Block Formatting Context)块级格式化环境
+         *
+         * - BFC是css中的一个隐藏属性，一个开启BFC的元素会变成一个独立的布局区域
+         * - 开启BFC后元素的特点
+         *      1、开启BFC的元素不会被浮动所覆盖
+         *      2、开启BFC的元素子元素和父元素外边不会重叠
+         *      3、开启BFC的元素可以包含浮动的子元素
+         *
+         * - 开启BFC的方法
+         *      1、设置元素浮动
+         *      2、设置元素为行内块元素
+         *      3、设置属性overflow为非visible(最常用方法 overflow:hidden)
+         *
+         */
+    </script>
+</head>
+
+<body>
+    <h4>高度塌陷示例</h4>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <h4>父子元素外边重叠问题</h4>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <br>
+    <div class="box1" style="overflow: hidden;">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>
