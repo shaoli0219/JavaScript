@@ -6,8 +6,8 @@ vegetables.pop();
 vegetables.forEach((item, index) => { console.log(item, index) });
 shallowCopy.forEach((item, index) => { console.log(item, index) });
 
-const arr1 = [4, 1, 2, 1, 2];
-const arr2 = [2, 2, 1];
+const arr1 = [4, 1, 2, 1, 2]
+const arr2 = [2, 2, 1]
 
 var singleNumber = function (nums) {
     for (let i = 1; i < nums.length; i++) {
