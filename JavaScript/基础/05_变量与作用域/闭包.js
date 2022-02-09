@@ -1,22 +1,22 @@
 /**
  * 闭包
  * 
- * 闭包就是能够读取其它函数内部变量的函数。在JavaScript中，，只用函数内部的子函数才能读取局部变
- * 量，所以闭包也可以理解成`定义在一个函数内部的函数`。本质上，闭包是将函数内部和外部链接起来的桥梁
+ * 闭包就是能够读取其它函数内部变量的函数。在JavaScript中，只用函数内部的子函数才能读取局部变
+ * 量，所以闭包也可以理解成`定义在一个函数内部的函数`。本质上，闭包是将函数内部和外部链接起来的桥梁。
  */
 
 // demo1
 function a() {
     var i = 0;
-    function b() {
+    return function () {
         console.log(++i);
-    }
-    return b;
+    };
 }
 var c = a();
 c();// 1
 c();// 2
 c();// 3
+
 /* 
 特点
     这段代码有两个特点：
@@ -59,7 +59,6 @@ function createCounter() {
     const myFunction = function () {
         counter = counter + 1
         return counter
-
     }
     return myFunction
 }
