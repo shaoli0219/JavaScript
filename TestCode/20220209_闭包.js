@@ -7,6 +7,6 @@ function outer() {
 }
 
 let res = outer()
-console.log(res())
-console.log(res())
-console.log(res())
+console.log(res()) // 1
+console.log(res()) // 2
+console.log(res()) // 3

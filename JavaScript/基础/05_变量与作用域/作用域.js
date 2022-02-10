@@ -63,3 +63,21 @@ function fun5(e) {
 }
 fun5(e); //123
 console.log(e) //123
+
+function foo() {
+    if (true) {
+        var number = 5
+        console.log(number)
+    }
+    console.log(number)
+}
+foo() // 5 和 5
+
+function bar() {
+    if (true) {
+        let number = 5
+        console.log(number)
+    }
+    console.log(number)
+}
+bar() // 5 和 ReferenceError: number is not defined
