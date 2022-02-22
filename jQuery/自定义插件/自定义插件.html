@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../lib/jquery-3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="jQuery-bgColor.js"></script>
+    <script type="text/javascript" src="jQuery-add.js"></script>
+    <script type="text/javascript" src="jQuery-table.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 使用了自定义bgColor方法
+            $('#mydiv').bgColor('red').width(100).height(100)
+
+            console.log($.add(1, 2))//3
+
+            const tbHead = ['序号', '姓名', '年龄', '工资'];
+            const tbBody = [
+                {
+                    name: 'Alice', age: 18, salary: 5000
+                },
+                {
+                    name: 'Bob', age: 19, salary: 5500
+                },
+                {
+                    name: 'Cherry', age: 16, salary: 4000
+                },
+            ]
+            $('#mytable').table(tbHead, tbBody);
+        })
+    </script>
+</head>
+
+<body>
+    <div id="mydiv"></div>
+    <div id="mytable"></div>
+</body>
+
+</html>

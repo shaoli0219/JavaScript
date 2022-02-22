@@ -1,6 +1,6 @@
 /**
  *
- * 立即执行函数：
+ * 立即执行函数(IIFE Immediately Invoked Function Expression)：
  * 
  * - 函数定义完，立即被调用，立即执行函数往往只会执行一次。
  * 
