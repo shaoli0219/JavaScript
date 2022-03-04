@@ -10,7 +10,7 @@
  */
 
 // demo1
-(function () {
+(function add() {
     console.log("一个匿名函数")
 })();
 
