@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        function test(m) {
+            m = { v: 5 }
+        }
+        var m = { k: 30 };
+        test(m);
+        console.log(m.v); // undefined
+
+        function showMessage(from, text) {
+            from = '*' + from + '*'; // 让 "from" 看起来更优雅
+            alert(from + ': ' + text);
+        }
+
+        let from = "Ann";
+        showMessage(from, "Hello"); // *Ann*: Hello
+        // "from" 值相同，函数修改了一个局部的副本。
+        alert(from); // Ann
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

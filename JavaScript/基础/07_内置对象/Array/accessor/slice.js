@@ -17,7 +17,7 @@ console.log(animals.slice(2, 4)); // expected output: Array ["camel", "duck"]
 console.log(animals.slice(1, 5)); // expected output: Array ["bison", "camel", "duck", "elephant"]
 console.log(animals.slice(-2)); // expected output: Array ["duck", "elephant"]
 console.log(animals.slice(2, -1)); // expected output: Array ["camel", "duck"]
-
+console.log(animals); // expected output: Array ["camel", "duck"]
 // 引用类型改变示例
 let myHonda = {
     color: 'red',

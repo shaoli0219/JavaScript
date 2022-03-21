@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+
+    </style>
+
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script type="text/javascript">
+        var list_li = document.getElementsByTagName('li');
+        // 方法一：闭包
+        // for (var i = 0; i < list_li.length; i++) {
+        //     (function (i) {
+        //         list_li[i].onclick = function () {
+        //             console.log(i + 1);
+        //         }
+        //     })(i)
+        // }
+
+        // 方法二：let块作用域
+        // for (let i = 0; i < list_li.length; i++) {
+        //     list_li[i].onclick = function () {
+        //         console.log(i + 1);
+        //     }
+        // }
+
+        // 方法三：innerHTML
+        for (var i = 0; i < list_li.length; i++) {
+            list_li[i].onclick = function () {
+                console.log(this.innerHTML);
+            }
+        }
+    </script>
+</body>
+
+</html>
