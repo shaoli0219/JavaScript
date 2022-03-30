@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.30测试代码</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        // splice测试
+        // splice是突变方法，可以用来增删改数组
+        var myFish = ["angel", "clown", "mandarin", "sturgeon"];
+        var removed = myFish.splice(2, 0, "drum");
+        console.log(myFish);
+        console.log(removed);
+
+        // some测试
+        function isBigEnough(element, index, array) {
+            return element >= 10;
+        }
+
+        console.log([2, 5, 8, 1, 4].some(isBigEnough));     // false
+        console.log([12, 5, 8, 1, 4].some(isBigEnough));    // true
+
+        const persons = [
+            { name: 'bob', age: 13, id: '1' },
+            { name: 'alice', age: 13, id: '2' },
+            { name: 'carl', age: 13, id: '3' },
+            { name: 'darling', age: 13, id: '4' }
+        ]
+
+        function hasObj(id) {
+            return persons.some(item => item.id === id)
+        }
+        console.log(hasObj("2")) // true
+        console.log(hasObj("5")) // false
+
+        // filter测试
+        let arr = [1, 2, 3, 5, 6, 9, 10];
+        console.log(arr.filter(value => value % 2 !== 0)) // [1, 3, 5, 9]
+
+        //过滤对象数组
+        const newPersons = persons.filter((item) => {
+            return item.name !== "bob"
+        })
+        console.log(newPersons)//0: {name: 'alice', age: 13, id: '2'}1: {name: 'carl', age: 13, id: '3'}2: {name: 'darling', age: 13, id: '4'}
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

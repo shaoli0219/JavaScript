@@ -9,12 +9,12 @@ o[1] = "one";// 用一个整数来索引它
 console.log(o)//{ '1': 'one' }
 
 // 数值键名被自动转成字符串
-var arr = ['a', 'b', 'c'];
-console.log(arr['0'])// 'a'
-console.log(arr[0])// 'a'
+// var arr = ['a', 'b', 'c'];
+// console.log(arr['0'])// 'a'
+// console.log(arr[0])// 'a'
 
-let arr = [1, 2, 3];
-console.log(String(arr) === '1,2,3') // true 
+// let arr = [1, 2, 3];
+// console.log(String(arr) === '1,2,3') // true 
 
 console.log([] + 1)     // "1"
 console.log([1] + 1)    // "11"
