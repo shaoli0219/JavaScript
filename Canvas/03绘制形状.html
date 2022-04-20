@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript">
+        function draw() {
+            const canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                // 绘制一个填充的矩形
+                ctx.fillRect(25, 25, 100, 100);
+                // 清除指定矩形区域，让清除部分完全透明。
+                ctx.clearRect(45, 45, 60, 60);
+                // 绘制一个矩形的边框
+                ctx.strokeRect(50, 50, 50, 50);
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas"></canvas>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>

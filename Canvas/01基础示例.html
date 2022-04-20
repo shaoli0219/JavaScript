@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas示例</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script type="text/javascript">
+        // 获取HTML元素canvas的引用
+        const canvas = document.getElementById("canvas");
+        // 获取元素的context
+        const ctx = canvas.getContext('2d');
+        // 使用fillStyle属性设置颜色
+        ctx.fillStyle = 'red';
+        // 使用fillRect()方法画矩形
+        ctx.fillRect(20, 20, 150, 100);
+    </script>
+</body>
+
+</html>
