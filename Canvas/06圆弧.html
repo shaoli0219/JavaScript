@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆弧</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script type="text/javascript">
+        /**
+         * 
+         * ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+         * 
+         * x,y为绘制圆弧所在圆上的圆心坐标。
+         * radius 为半径
+         * startAngle 以及endAngle 参数用弧度定义了开始以及结束的弧度。这些都是以x轴为基准。
+         * anticlockwise 为 true 时，是逆时针方向，否则顺时针方向 
+         */
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            ctx.arc(100, 100, 50, 0, (Math.PI / 180) * 270, false);
+            ctx.fill();
+        }
+    </script>
+</body>
+
+</html>
