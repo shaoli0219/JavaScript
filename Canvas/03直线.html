@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直线</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script type="text/javascript">
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            ctx.beginPath(); // 新建一条路径
+            ctx.moveTo(100, 100); // 将画笔移动到点（100,100）
+            ctx.lineTo(300, 100); // 绘制一条从当前位置到指定x以及y位置的直线。
+            ctx.lineTo(100, 300); // 绘制一条从当前位置到指定x以及y位置的直线。
+            ctx.lineTo(200, 400); // 绘制一条从当前位置到指定x以及y位置的直线。
+            ctx.lineTo(300, 300); // 绘制一条从当前位置到指定x以及y位置的直线。
+            ctx.lineTo(400, 100); // 绘制一条从当前位置到指定x以及y位置的直线。
+            // ctx.closePath(); // 连接起始点
+            ctx.stroke(); // 通过线条来绘制图形轮廓。
+            // ctx.fill(); // 通过线条来绘制图形轮廓。
+
+            ctx.beginPath(); // 新建一条路径
+            ctx.moveTo(10, 20); // 将画笔移动到点（100,100）
+            ctx.lineTo(300, 20); // 绘制一条从当前位置到指定x以及y位置的直线。
+            ctx.stroke(); // 通过线条来绘制图形轮廓。
+        }
+    </script>
+</body>
+
+</html>

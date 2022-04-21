@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script type="text/javascript">
+        const canvas = document.getElementById("canvas");
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+
+            // 描边三角形
+            ctx.beginPath(); // 新建一条路径
+            ctx.moveTo(50, 50); // 将画笔移动到点（100,100）
+            ctx.lineTo(100, 100); // 绘制一条从当前位置到指定x以及y位置的直线
+            ctx.lineTo(50, 150); // 绘制一条从当前位置到指定x以及y位置的直线
+            ctx.closePath(); // 闭合路径
+            ctx.stroke(); // 通过线条来绘制图形轮廓
+
+            // 填充三角形
+            ctx.beginPath(); // 新建一条路径
+            ctx.moveTo(50, 150); // 将画笔移动到点（100,100）
+            ctx.lineTo(100, 200); // 绘制一条从当前位置到指定x以及y位置的直线
+            ctx.lineTo(50, 250); // 绘制一条从当前位置到指定x以及y位置的直线
+            ctx.fill(); // 通过填充路径的内容区域生成实心的图形
+        }
+    </script>
+</body>
+
+</html>
