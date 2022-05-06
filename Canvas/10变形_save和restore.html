@@ -13,6 +13,19 @@
         }
     </style>
     <script type="text/javascript">
+
+        /**
+         *
+         * save()   保存 canvas 的所有状态
+         * restore()恢复 canvas 的所有状态
+         * 
+         * 状态包括：
+         *      1、当前应用的变形（即移动，旋转和缩放）
+         *      2、strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, lineDashOffset, 
+         * shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation, font, textAlign, 
+         * textBaseline, direction, imageSmoothingEnabled
+         *      3、当前的裁切路径（clipping path）
+         */
         function draw() {
             const canvas = document.getElementById('canvas');
             if (canvas.getContext) {

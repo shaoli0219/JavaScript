@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        canvas {
+            border: 1px red solid;
+        }
+    </style>
+    <script type="text/javascript">
+
+        /**
+         *
+         * translate(x, y) 方法接受两个参数。x 是左右偏移量，y 是上下偏移量
+         * 
+         * 在做变形之前先保存状态是一个良好的习惯。大多数情况下，调用 restore 方法比手动恢复原先的状态要简单得多
+         */
+        function draw() {
+            const canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                for (var i = 0; i < 3; i++) {
+                    for (var j = 0; j < 3; j++) {
+                        ctx.save();
+                        ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+                        ctx.translate(10 + j * 50, 10 + i * 50);
+                        ctx.fillRect(0, 0, 25, 25);
+                        ctx.restore();
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="800" height="600"></canvas>
+</body>
+
+</html>
