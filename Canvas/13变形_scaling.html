@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缩放</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        canvas {
+            border: 1px red solid;
+        }
+    </style>
+    <script type="text/javascript">
+
+        /**
+         *
+         * scale(x, y) scale  方法可以缩放画布的水平和垂直的单位。两个参数都是实数，可以为负数，x 为水平缩放因子，y 为垂直缩放因子
+         * 
+         * 如果比1小，会缩小图形
+         * 如果比1大会放大图形
+         * 默认值为1， 为实际大小
+         * 
+         * 默认情况下，canvas 的 1 个单位为 1 个像素。
+         * 举例说，如果我们设置缩放因子是 0.5，1 个单位就变成对应 0.5 个像素，这样绘制出来的形状就会是原先的一半。
+         * 同理，设置为 2.0 时，1 个单位就对应变成了 2 像素，绘制的结果就是图形放大了 2 倍。
+         * 
+         */
+        function draw() {
+            const canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                // draw a simple rectangle, but scale it.
+                ctx.save();
+                ctx.scale(10, 3);
+                ctx.fillRect(1, 10, 10, 10);
+                ctx.restore();
+
+                // mirror horizontally
+                ctx.scale(-1, 1);
+                ctx.font = '48px serif';
+                ctx.fillText('MDN', -135, 120);
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="800" height="600"></canvas>
+</body>
+
+</html>
