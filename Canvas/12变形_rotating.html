@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        canvas {
+            border: 1px red solid;
+        }
+    </style>
+    <script type="text/javascript">
+
+        /**
+         *
+         * rotate(angle) 这个方法只接受一个参数：旋转的角度(angle)，它是顺时针方向的，以弧度为单位的值。
+         * 
+         * 旋转的中心点始终是 canvas 的原点，如果要改变它，我们需要用到 translate 方法。
+         */
+        function draw() {
+            const canvas = document.getElementById('canvas');
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                ctx.translate(175, 175);
+                for (var i = 1; i < 6; i++) { // Loop through rings (from inside to out)
+                    ctx.save();
+                    ctx.fillStyle = 'rgb(' + (51 * i) + ',' + (255 - 51 * i) + ',255)';
+                    for (var j = 0; j < i * 6; j++) { // draw individual dots
+                        ctx.rotate(Math.PI * 2 / (i * 6));
+                        ctx.beginPath();
+                        ctx.arc(0, i * 12.5, 5, 0, Math.PI * 2, true);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="draw()">
+    <canvas id="canvas" width="800" height="600"></canvas>
+</body>
+
+</html>
