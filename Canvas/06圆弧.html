@@ -32,7 +32,13 @@
         const canvas = document.getElementById("canvas");
         if (canvas.getContext) {
             const ctx = canvas.getContext('2d');
+
             ctx.arc(100, 100, 50, 0, (Math.PI / 180) * 270, false);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(100, 300, 50, 0, (Math.PI / 180) * 270, false);
             ctx.fill();
         }
     </script>
