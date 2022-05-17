@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>太阳系动画</title>
+    <title>Solor System</title>
     <link rel="stylesheet" type="text/css" href="" />
     <script type="text/javascript" src=""></script>
     <style type="text/css">
@@ -13,59 +13,50 @@
         }
     </style>
     <script type="text/javascript">
-
+        // 初始化图片
         var sun = new Image();
         var moon = new Image();
         var earth = new Image();
-
-        function init() {
-            sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
-            moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
-            earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
-            window.requestAnimationFrame(draw);
-        }
-
+        sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+        moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+        earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+        // 动画绘制
         function draw() {
-            var ctx = document.getElementById('canvas').getContext('2d');
-
-            ctx.globalCompositeOperation = 'destination-over';
-            ctx.clearRect(0, 0, 400, 400); // clear canvas
-
-            ctx.fillStyle = 'rgba(0,0,0,0.4)';
-            ctx.strokeStyle = 'rgba(0,153,255,0.4)';
+            var ctx = document.getElementById('canvas').getContext('2d');  // 获取canvas上下文
+            ctx.globalCompositeOperation = 'source-over';// 图形合成模式：在现有画布上下文之上绘制新图形
+            ctx.clearRect(0, 0, 400, 400); // 清除画布
+            var time = new Date(); // 获取时间对象
+            // 太阳背景
+            ctx.drawImage(sun, 0, 0, 400, 400);
+            // 地球轨道
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(0,153,255,0.4)';// 设置轨道颜色
+            ctx.arc(200, 200, 105, 0, Math.PI * 2, false); // 地球轨道
+            ctx.stroke();
+            // 地球
+            ctx.save(); // 保存当前canvas状态
+            ctx.translate(200, 200); // 移动坐标原点到（200,200）
+            ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());// 旋转
+            ctx.translate(105, 0);// 基于（200,200）平移地球
+            ctx.drawImage(earth, -12, -12);// 绘制地球，将地球移动到坐标原点
+            ctx.fillStyle = 'rgba(0,0,0,0.4)';// 设置填充色
+            ctx.fillRect(0, -12, 50, 24); // 地球阴影(12是地球图片的半径)
+            // 月亮
             ctx.save();
-            ctx.translate(150, 150);
-
-            // Earth
-            var time = new Date();
-            ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
-            ctx.translate(105, 0);
-            ctx.fillRect(0, -12, 50, 24); // Shadow
-            ctx.drawImage(earth, -12, -12);
-
-            // Moon
-            ctx.save();
-            ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+            ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());// 旋转
             ctx.translate(0, 28.5);
             ctx.drawImage(moon, -3.5, -3.5);
+            
             ctx.restore();
-
             ctx.restore();
-
-            ctx.beginPath();
-            ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
-            ctx.stroke();
-
-            ctx.drawImage(sun, 0, 0, 300, 300);
-
             window.requestAnimationFrame(draw);
         }
-
-        init();
+        // 开启动画
+        window.requestAnimationFrame(draw);
     </script>
 </head>
 
-<body onload="draw()">
+<body>
     <canvas id="canvas" width="400" height="400"></canvas>
 </body>
 
