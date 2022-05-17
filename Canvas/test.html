@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript" src=""></script>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .canvasBox {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            width: 600px;
+            height: 600px;
+            border: 1px red solid;
+        }
+    </style>
+    <script type="text/javascript">
+        // 动画绘制
+        function draw() {
+            var ctx = document.getElementById('canvas').getContext('2d');  // 获取canvas上下文
+            ctx.clearRect(0, 0, 600, 600); // 清除画布
+            var time = new Date(); // 获取时间对象
+            // ctx.save();
+            console.log((time.getSeconds() * 10))
+            // ctx.translate((time.getSeconds() * 10), 0);
+            ctx.fillRect(0, 0, (time.getSeconds() * 10), 15);
+            // ctx.restore();
+            window.requestAnimationFrame(draw);
+        }
+        // 开启动画
+        window.requestAnimationFrame(draw);
+    </script>;
+</head>
+
+<body>
+    <div class="canvasBox">
+        <canvas id="canvas" width="600" height="600"></canvas>
+    </div>
+</body>
+
+</html>
