@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="1500" height="2000"></canvas>
+    <canvas id="canvas" width="1100" height="2000"></canvas>
     <script type="text/javascript">
         var radius = 5;
         var delt = 0.1;
@@ -32,7 +32,7 @@
                 for (const item in roadData) {
                     if (Object.hasOwnProperty.call(roadData, item)) {
                         const roadArr = roadData[item].edge;
-                        ctx.strokeStyle = '#3d77d4';
+                        ctx.strokeStyle = ['#3d77d4', '#885d8e'][Math.floor(Math.random() * 2)];
                         ctx.beginPath();
                         renderRoad(roadArr, ctx);
                     }
@@ -56,7 +56,7 @@
                 delt = -delt
             }
         }
-        setInterval(() => { draw() }, 40);
+        setInterval(() => { draw() }, 1000);
         function renderRoad(roadArr, ctx) {
             for (let index = 0; index < roadArr.length; index++) {
                 const element = roadArr[index];
