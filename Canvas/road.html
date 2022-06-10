@@ -8,9 +8,107 @@
     <link rel="stylesheet" type="text/css" href="" />
     <script type="text/javascript" src="data.js"></script>
     <style type="text/css">
-        canvas {
-            border: 1px solid red;
-            background-color: #100c2a;
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        #canvas {
+            /* border: 1px solid red; */
+            background-color: #0a1a29;
+        }
+
+        .msg {
+            width: 100%;
+            /* height: 100%; */
+            background: linear-gradient(to right, #091a2a, #064566);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .msg>div {
+            margin: 10px auto;
+            border: 1px #79a5c2 solid;
+            width: 90%;
+            padding: 5px 0;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            color: #46d2e1;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .msg5 {
+            color: #8b2f34;
+            font-size: 14px;
+        }
+
+        .streetMsg {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .factoryMsg {
+            width: 80%;
+        }
+
+        .factoryMsg>div {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .factoryMsg>div>span {
+            font-size: 14px;
+            color: #78a7c1;
+
+        }
+
+        .factoryMsg>div>span:last-child {
+            font-size: 15px;
+            color: #eaffff
+        }
+
+        .streetMsg>div {
+            width: 44%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .streetMsg>div>span {
+            font-size: 14px;
+            color: #78a7c1;
+
+        }
+
+        .streetMsg>div>span:last-child {
+            font-size: 15px;
+            color: #eaffff
+        }
+
+        td {
+            height: 20px;
+            vertical-align: middle;
+            text-align: center;
+            color: #78a7c1;
+        }
+
+        table thead td {
+            color: #eaffff;
         }
     </style>
     <script type="text/javascript">
@@ -19,24 +117,175 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="1100" height="2000"></canvas>
+    <div class="container">
+        <canvas id="canvas" width="1620" height="930"></canvas>
+        <div class="msg">
+            <div>
+                <div class="title">道路通行速度热力图</div>
+                <canvas id="hot" width="200px" height="100px"></canvas>
+            </div>
+            <div>
+                <div class="title">街道信息</div>
+                <div class="streetMsg">
+                    <div>
+                        <span>街道号</span>
+                        <span>50</span>
+                    </div>
+                    <div>
+                        <span>平均速度</span>
+                        <span>66</span>
+                    </div>
+                </div>
+                <div class="streetMsg">
+                    <div>
+                        <span>车辆总数</span>
+                        <span>110</span>
+                    </div>
+                    <div>
+                        <span>异常情况</span>
+                        <span>26</span>
+                    </div>
+                </div>
+                <div class="streetMsg">
+                    <div>
+                        <span>平均速度</span>
+                        <span>70</span>
+                    </div>
+                    <div>
+                        <span>最大限速</span>
+                        <span>120</span>
+                    </div>
+                </div>
+                <div class="streetMsg">
+                    <div>
+                        <span>车辆总数</span>
+                        <span>250</span>
+                    </div>
+                    <div>
+                        <span>健康程度</span>
+                        <span>166</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="title">工厂信息</div>
+                <div class="factoryMsg">
+                    <div>
+                        <span>生产中工厂数</span>
+                        <span>21</span>
+                    </div>
+                </div>
+                <div class="factoryMsg">
+                    <div>
+                        <span>缺料工厂数</span>
+                        <span>0</span>
+                    </div>
+                </div>
+                <div class="factoryMsg">
+                    <div>
+                        <span>缺工工厂数</span>
+                        <span>9</span>
+                    </div>
+                </div>
+                <div class="factoryMsg">
+                    <div>
+                        <span>异常工厂数</span>
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="title">污染信息</div>
+                <table border="0" width="100%" cellspacing="1">
+                    <thead>
+                        <tr>
+                            <td>编号</td>
+                            <td>位置</td>
+                            <td>污染值</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>294</td>
+                        <td>(113,221)</td>
+                        <td>531</td>
+                    </tr>
+                    <tr>
+                        <td>224</td>
+                        <td>(312,221)</td>
+                        <td>3122</td>
+                    </tr>
+                    <tr>
+                        <td>114</td>
+                        <td>(412,221)</td>
+                        <td>1138</td>
+                    </tr>
+                    <tr>
+                        <td>333</td>
+                        <td>(12,221)</td>
+                        <td>5338</td>
+                    </tr>
+                    <tr>
+                        <td>029</td>
+                        <td>(112,921)</td>
+                        <td>1338</td>
+                    </tr>
+                    <tr>
+                        <td>748</td>
+                        <td>(112,22)</td>
+                        <td>338</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div class="title">特殊信息</div>
+                <div class="msg5">街道21临时关闭</div>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
         var radius = 5;
         var delt = 0.1;
-        function draw() {
+
+        drawHot();
+        
+
+        function drawHot() {
+            const canvas = document.getElementById("hot");
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                ctx.moveTo(5, 70);
+                ctx.lineTo(35, 60);
+                ctx.lineTo(35, 70);
+                ctx.lineTo(5, 80);
+                ctx.fillStyle = '#004e7d';
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(35, 60);
+                ctx.lineTo(75, 50);
+                ctx.lineTo(125, 50);
+                ctx.lineTo(125, 60);
+                ctx.lineTo(75, 60);
+                ctx.lineTo(35, 70);
+                ctx.fillStyle = '#5ecf9b';
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(125, 50);
+                ctx.lineTo(195, 50);
+                ctx.lineTo(195, 60);
+                ctx.lineTo(125, 60);
+                ctx.fillStyle = '#f6db44';
+                ctx.fill();
+            }
+        }
+
+        function drawVeh() {
             const canvas = document.getElementById("canvas");
             if (canvas.getContext) {
                 const ctx = canvas.getContext('2d');
-                ctx.clearRect(0, 0, 1500, 2000); // 清除画布
-                ctx.lineWidth = 0.6;
-                for (const item in roadData) {
-                    if (Object.hasOwnProperty.call(roadData, item)) {
-                        const roadArr = roadData[item].edge;
-                        ctx.strokeStyle = ['#3d77d4', '#885d8e'][Math.floor(Math.random() * 2)];
-                        ctx.beginPath();
-                        renderRoad(roadArr, ctx);
-                    }
-                }
+                ctx.save();
                 const vehicleData = otherData.veh;
                 for (const item in vehicleData) {
                     if (Object.hasOwnProperty.call(vehicleData, item)) {
@@ -50,13 +299,59 @@
                         }
                     }
                 }
+                // var img = new Image();
+                // img.onload = function () {
+                //     ctx.rotate(2 * Math.PI / 6);
+                //     ctx.drawImage(img, 50, 38, 30, 50);
+
+                // };
+                // img.src = '../assets/image/1.jpg';
+                radius += delt;
+                if (radius >= 8 || radius <= 5) {
+                    delt = -delt
+                }
             }
-            radius += delt;
-            if (radius >= 8 || radius <= 5) {
-                delt = -delt
+            return drawVeh
+        }
+
+        function drawRoad() {
+            const canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, 1500, 2000); // 清除画布
+                ctx.lineWidth = 0.6;
+                for (const item in roadData) {
+                    if (Object.hasOwnProperty.call(roadData, item)) {
+                        const roadArr = roadData[item].edge;
+                        ctx.strokeStyle = ['#13b1fb', '#fde24d', '#f94d4d', '#58c29a'][Math.floor(Math.random() * 4)];
+                        ctx.beginPath();
+                        renderRoad(roadArr, ctx);
+                    }
+                }
+            }
+            drawMsg();
+            return drawRoad
+        }
+
+        function drawMsg() {
+            const canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                const ctx = canvas.getContext('2d');
+                // ctx.globalCompositeOperation = 'destination-over';
+                ctx.strokeStyle = "rgb(255,255,255)";
+                ctx.strokeRect(50, 50, 150, 80);
+                ctx.font = "42px serif";
+                ctx.fillText("12",100, 50);
+                var img = new Image();
+                img.onload = function () {
+                    ctx.drawImage(img, 50, 50, 50, 50);
+                };
+                // img.src = '../assets/image/1.jpg';
             }
         }
-        setInterval(() => { draw() }, 1000);
+        setInterval(drawRoad(), 3000);
+        setInterval(drawVeh(), 1000);
+
         function renderRoad(roadArr, ctx) {
             for (let index = 0; index < roadArr.length; index++) {
                 const element = roadArr[index];
@@ -64,9 +359,10 @@
             }
             ctx.stroke();
         }
+
         function renderVehicle(pos, ctx) {
             ctx.beginPath();
-            ctx.fillStyle = "rgba(124, 255, " + Math.floor(Math.random() * 255) + ", " + 1 + ")";
+            ctx.fillStyle = ['#cbaff9', '#f94d4d', '#58c29a'][Math.floor(Math.random() * 3)];
             ctx.moveTo(pos[0], pos[1]);
             ctx.arc(pos[0], pos[1], radius, 0, Math.PI * 2, true);
             ctx.fill();
